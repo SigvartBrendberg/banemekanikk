@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Formelsamling</title>
+	<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEUAAAAAAAClZ7nPAAAAAXRSTlMAQObYZgAAABhJREFUCB1j8GZYybCLoY+hkCGWYSrDJQAhfwRyMiIP8wAAAABJRU5ErkJggg==">
+	<style>
+		th{
+			text-align:left;
+		}
+		td,th{
+			border-style:solid;
+			border-width:1px;
+			background-color:#DDDDDD;
+		}
+		.liten{
+			font-size:70%;
+		}
+	</style>
+	<!--<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>-->
+	<script type="text/javascript" async src="MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$','$'],["\\(","\\)"]],processEscapes:true}});</script>
+</head>
+<body>
+<h1>Formelsamling i banemekanikk</h1>
+<i>Frå 7 år og oppover</i>
+<noscript style="color:red"><br>Du nyttar ikkje javascript. Senne sida treng javascript for å formatera formlar</noscript>
+<h2>Innhald</h2>
+<ul>
+	<li><a href="#grunn">Kjerneprinsipp</a></li>
+	<li><a href="#konstantar">Konstantar</a></li>
+	<li><a href="#samanhengar">Grunnleggjande samanhengar</a></li>
+	<li><a href="#baner">Baner</a>
+		<ul>
+		<li><a href="#sirkel">Sirkel</a></li>
+		<li><a href="#ellipse">Ellipse</a></li>
+		<li><a href="#parabel">Parabel</a></li>
+		<li><a href="#hyperbel">Hyperbel</a></li>
+		</ul>
+	</li>
+	<li><a href="#baneskifte">Baneskifte</a>
+		<ul>
+		<li><a href="#baneskifteintro">Innleing og delta-v</a></li>
+		<li><a href="#plan">I plan</a>
+			<ul>
+			<li><a href="#sirkelsirkel">Sirkel-sirkel</a>
+				<ul>
+				<li><a href="#hohmann">Hohmann</a></li>
+				<li><a href="#bielliptisk">Bi-elliptisk</a></li>
+				</ul>
+			</li>
+			<li><a href="#sirkelellipse">Sirkel-ellipse</a></li>
+			<li><a href="#ellipseellipse">Ellipse-ellipse</a>
+				<ul>
+				<li><a href="#paraaks">Parallel akselinje</a></li>
+				<li><a href="#bitangent">Bi-tangent</a></li>
+				</ul>
+			</li>
+			</ul>
+		</li>
+		<li><a href="#rom">I rom</a>
+			<ul>
+			<li><a href="#genbielliptisk">Generalisert bi-elliptisk baneskifte</a></li>
+			</ul>
+		</li>
+		</ul>
+	</li>
+	<li><a href="#kablar">kablar</a></li>
+	<li><a href="#tabellar">tabellar</a></li>
+</ul>
+<h2 id="konstantar">Konstantar</h2>
+<table>
+	<tr>
+		<th>Konstant</th>
+		<th>Verdi</th>
+		<th>Namn</th>
+		<th>Bruk</th>
+	</tr>
+	<tr>
+		<td>$\mu$</td>
+		<td>$6.67408×10^{−11} m^3 s^{-2} kg^{-1}$</td>
+		<td>Gravitasjonskonstanten</td>
+		<td>Utrekning av tyngdekraft</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>$11.94...$</td>
+		<td>Hohmann-biellipse radiusen</td>
+		<td>Optimalisering av baneskifte</td>
+	</tr>
+</table>
+<h2 id="grunn">Kjerneprinsipp</h2>
+Tyngdelova
+$$F=\frac{Gm_1m_2}{r^2}$$
+<ul>
+	<li>$F$ kraft</li>
+	<li>$G$ gravitasjonskonstanten</li>
+	<li>$m_1$ massen til den eine tingen</li>
+	<li>$m_2$ massen til den andre tingen</li>
+	<li>$r$ avstanden mellom tinga</li>
+</ul>
+Dette kan vi gjere nokre interessante ting med. Viss vi integrerar over $r$ får vi den potensielle energien:
+$$E_p=\int{\left(\frac{Gm_1m_2}{r^2}\right)}dr$$
+$$E_p=-\frac{Gm_1m_2}{r}$$
+Den potensielle energien er alltid negativ, berre når to ting er uendeleg langt unna kvarandre er han null.
+Den totalle energien er som vanleg summen av potensiell energi og kinetisk energi, $E=E_p+E_k$
+<h2 id="baner">Baner</h2>
+<h4>Modell</h4>
+<p>Vi ser kun på baner i eit forenkla system. Vi har ein sentral punktmasse, og berre denne virkar på eit masselaust objekt som går i bane. <u>Dette er bra nok i praksis!</u> (engelsk: <a href="https://en.wikipedia.org/wiki/Patched_conic_approximation">"Patched conic approximation"</a>) Det er sjelden eller aldri bruk for å ta hensyn til fleire objekt i gongen. Likevel kan vi handsama ein situasjon som fleire ulike system på rekkje og rad. Til dømes:
+<ul style="list-style-type:decimal;">
+	<li><em>Ting i bane rundt Jorda.</em></li>
+	<li>Får unsleppingsfart, og slipp unna jordsystemet</li>
+	<li><em>Er no i bane rundt Sola.</em></li>
+	<li>Kjem til Mars</li>
+	<li><em>Er no i bane rundt Mars.</em></li>
+</ul>
+Ikkje på noko punkt i reisa reknar vi med tyngdekrafta til to ting på same tid. Dette fungerar bra og er lett å rekna med.
+I eit slikt system med kun ein sentralmasse har ein bane alltid form som eit kjeglesnitt. Dei er det fire av:
+</p>
+<h3 id="sirkel">Sirkelbane</h3>
+<svg
+	width="800"
+	height="500">
+	<circle
+		cx="400"
+		cy="250"
+		r="200"
+		stroke-width="1"
+		stroke="black"
+		fill="none"/>
+	<line
+		x1="400"
+		y1="250"
+		x2="200"
+		y2="250"
+		stroke-width="2"
+		stroke="red"/>
+	<circle
+		cx="400"
+		cy="250"
+		r="5"
+		fill="black"/>
+	<text
+		x="300"
+		y="240"
+		text-anchor="middle"
+		font-family="Verdana"
+		font-size="15"
+		fill="red"
+	>r</text>
+	<text
+		x="405"
+		y="240"
+		text-anchor="start"
+		font-family="Verdana"
+		font-size="15"
+		fill="black"
+	>μ</text>
+</svg>
+<ul>
+	<li>$r$ baneradius</li>
+	<li>$\mu$ tyngdefaktor, det same som massen ganger gravitasjonskonstanten, $G\cdot M$</li>
+</ul>
+<hr>
+Fart i sirkelbane
+$$v=\sqrt{\frac{\mu}{r}}$$
+<ul>
+	<li>$v$ banefart</li>
+	<li>$\mu$ tyngdefaktor</li>
+	<li>$r$ baneradius</li>
+</ul>
+<p>Farta i ein sirkelbane er konstant. Fire gongar større masse i sentrum gjer dobbel fart. Fire gongar lengre unna er farta halvparten så stor.</p>
+<hr>
+Unsleppingsfart ($\sqrt{2}$ gonger større enn banefarta)
+$$v_e=\sqrt{\frac{2\mu}{r}}$$
+<ul>
+	<li>$v_e$ unsleppinsfart</li>
+	<li>$\mu$ tyngdefaktor</li>
+	<li>$r$ baneradius</li>
+</ul>
+<p>Unsleppinsfarta er farta ein ting må ha for å slippa unna tyngdefeltet til den sentrale punktmassen. Når tingen nærmar seg ei uendeleg avstand nærmar farta seg null. Viss ein ting har unnsleppingsfart er tingen i ein <a href="#parabel">parabelbane</a></p>
+<hr>
+Omløpstid
+$$T=\sqrt{\frac{r^3}{\mu}}$$
+<ul>
+	<li>$T$ omløpstid</li>
+	<li>$\mu$ tyngdefaktor</li>
+	<li>$r$ baneradius</li>
+</ul>
+<hr>
+<h3 id="ellipse">Ellipsebane</h3>
+<svg width="800" height="500">
+	<ellipse cx="400" cy="250" rx="300" ry="200" stroke-width="1" stroke="black" fill="none"/>
+	<circle cx="290.46" cy="250" r="5" fill="black"/>
+</svg>
+<ul>
+	<li>$\mu$ Masse ganga med gravitasjonskonstanten, $GM$</li>
+	<li>$a$ Store halvakse, største radius i ein ellipse</li>
+</ul>
+<hr>
+Store halvakse
+$$a=\frac{A+P}{2}$$
+<hr>
+Eksentrisitet
+$$e=\frac{A-P}{A+P}$$
+<hr>
+Omløpstid
+$$T=\sqrt{\frac{a^3}{\mu}}$$
+<hr>
+Banefart
+$$v=\sqrt{\mu\left(\frac{2}{r}-\frac{2}{A+P}\right)}$$
+<ul>
+	<li>$v$ banefart</li>
+	<li>$\mu$ tyngdefaktor</li>
+	<li>$r$ radius</li>
+	<li>$A$ apoapseavstand</li>
+	<li>$P$ periapseavstand</li>
+</ul>
+eller
+$$v=\sqrt{\mu\left(\frac{2}{r}-\frac{1}{a}\right)}$$
+<hr>
+Banevinkel
+$$u=\cos^{-1}\left(\frac{2AP-r(A+P)}{r(A-P)}\right)$$
+eller
+$$u=\cos^{-1}\left(\frac{2AP}{r(A-P)}-\frac{1}{e}\right)$$
+<hr>
+<h3 id="Parabel">parabelbane</h3>
+I ein parabelbane er baneenergien null:
+$$E_p+E_k=0$$
+<hr>
+<h3 id="hyperbel">Hyperbelbane</h3>
+<hr>
+Vinkel mellom ingong/utgong
+$$u=2\cos^{-1}\left(\frac{\mu}{P\cdot v_{\inf}^2+\mu}\right)$$
+eller
+$$u=2\cos^{-1}\left(-\frac{1}{e}\right)$$
+<hr>
+<h2>Systemskifte</h2>
+<h1>Anna stoff, ikkje pensum</h1>
+<h3 id="kablar">Kablar</h3>
+<ul>
+	<li>$\rho$ Materialltettheit</li>
+	<li>$\tau$ potensiale</li>
+	<li>$S$ strekkstyrke</li>
+</ul>
+<hr>
+Lokal vertikal akselrasjon
+$$a=\frac{v^2}{r}-\frac{\mu}{r^2}$$
+<hr>
+Integrert potensiale
+$$\tau=\mu\left(\frac{1}{r_{botn}}-\frac{1}{r_{topp}}\right)$$
+<hr>
+Tverrsnittsforhold
+$$e^{\frac{\tau\cdot\rho}{S}}$$
+<footer>
+	<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+		<img alt="Creative Commons License" src="CCLicence.png">
+	</a><br>
+Sigvart Brendberg 2017
+</footer>
+</body>
+</html>
