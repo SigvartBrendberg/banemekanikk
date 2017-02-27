@@ -1,0 +1,152 @@
+body{
+	font-family:Arial,Helvetica,sans-serif;
+	background-color:#202030;
+}
+a{
+	color:#9b285a;
+	text-decoration:none;
+	font-weight:bold;
+}
+li li a{
+	color:#004b91;
+}
+li li li a{
+	color:#9b285a;
+}
+li li li li a{
+	color:#004b91;
+}
+th{
+	text-align:left;
+	color:#9b285a;
+	font-size:110%;
+}
+td,th{
+	padding:3px;
+	border-left-style:solid;
+	border-top-style:solid;
+	border-width:1px;
+	border-color:#000000;
+}
+tr{
+	background-color:#DDDDDD;
+}
+tr:nth-child(2n+1){
+	background-color:initial;
+}
+table{
+	box-shadow:4px 4px 3px #888888;
+}
+h2{
+	color:#000000;
+	text-shadow:1px 1px 1px #505050;
+}
+ul{
+	list-style-type:none;
+	padding-left:40px;
+}
+.visning{
+	width:30px;
+	margin-right:2px;
+}
+.wrapper{
+	margin-left:5%;
+	margin-right:5%;
+	padding:20px;
+	display:inline-block;
+}
+#heading,h2,h3,h4{
+	text-align:center;
+	font-size:300%;
+	color:#000000;
+	text-shadow: 1px 1px 1px #505050;
+/*		animation-name: example;
+		animation-duration: 3s;
+		animation-iteration-count: infinite;*/
+}
+#main{
+	background-color:#F6F6F0;
+	border-radius:10px;
+	box-shadow:5px 5px 4px #000000;
+}
+#navbar{
+	margin-bottom:10px;
+	background-color:#333;
+}
+#navbar div{
+	display:inline-block;
+	height:100%;
+}
+#navbar ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+#navbar li{
+	float:left;
+}
+
+#navbar li a{
+	display:block;
+	color:white;
+	text-align:center;
+	padding:12px 16px;
+	font-size:150%;
+	text-decoration:none;
+	font-family:"Century Gothic","Avant Garde Gothic","Avant Garde","URW Gothic L",helvetica,sans-serif;
+}
+
+#navbar li a:hover{
+	background-color:#111;
+}
+@keyframes example {
+	0%{
+		color:#000000;
+		transform:rotate(0deg);
+		text-shadow: 1px 1px 1px #505050;
+	}
+	50%{
+		color:#FF0000;
+		transform:rotate(20deg);
+		text-shadow: 5px 5px 1px #505050;
+		padding-left:200px;
+	}
+	80%{
+		color:#FF0000;
+		transform:rotate(270deg);
+		text-shadow: 5px 5px 1px #505050;
+	}
+	100%{
+		color:#000000;
+		transform:rotate(360deg);
+		text-shadow: 1px 1px 1px #505050;
+	}
+}
+@media only screen 
+and (max-width:1000px){
+	#heading{
+		text-align:left;
+		font-size:250%;
+	}
+}
+@media only screen 
+and (max-width:700px){
+	.wrapper{
+		margin-left:0%;
+		margin-right:0%;
+	}
+	svg{
+		width:75%;
+	}
+	#heading{
+		font-size:200%;
+	}
+	#navbar li{
+		float:initial;
+	}
+	#navbar li a{
+		padding:10px 16px;
+	}
+}

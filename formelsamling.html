@@ -1,30 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="nn">
 <head>
 	<meta charset="utf-8">
+	<meta name="description" content="Formelsamling i banemekanikk og astrofysikk">
+	<meta name="author" content="Sigvart Brendberg">
 	<title>Formelsamling</title>
-	<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEUAAAAAAAClZ7nPAAAAAXRSTlMAQObYZgAAABhJREFUCB1j8GZYybCLoY+hkCGWYSrDJQAhfwRyMiIP8wAAAABJRU5ErkJggg==">
+	<link rel="icon" href="ico.png" sizes="32x32">
+	<link rel="stylesheet" type="text/css" href="main.css">
 	<style>
-		th{
-			text-align:left;
-		}
-		td,th{
-			border-style:solid;
-			border-width:1px;
-			background-color:#DDDDDD;
-		}
-		.liten{
-			font-size:70%;
-		}
+svg text{
+	font-style:italic;
+}
 	</style>
 	<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 	<!--<script type="text/javascript" async src="MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>-->
 	<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$','$'],["\\(","\\)"]],processEscapes:true}});</script>
 </head>
-<body>
-<h1>Formelsamling i banemekanikk</h1>
+<body bgcolor="#202030">
+<div class="wrapper" id="main">
+<h1 id="heading">Formelsamling</h1>
+<div id="navbar" align="center">
+	<div>
+		<ul>
+  			<li><a href="">Banemekanikk</a></li>
+  			<li><a href="">Solsegl</a></li>
+  			<li><a href="">Kablar</a></li>
+		</ul>
+	</div>
+</div>
 <i>Frå 7 år og oppover</i>
-<noscript style="color:red"><br>Du nyttar ikkje javascript. Senne sida treng javascript for å formatera formlar</noscript>
+<p>Masse formlar, ikkje ei lærebok. Slå opp ting raskt og enkelt</p>
+<p>
+<b>Kva er dette?</b><br>
+Formelsamling her er ei lettare kaotisk liste med formlar som er kjekke å kunna innanfor banemekanikk og framdrift i rommet.
+</p>
+<noscript style="color:red"><br>
+	<p>Javascript er avskrudd. Eg nyttar <a href="https://www.mathjax.org/">MathJax</a> for å teikna formlar og likningar</p>
+</noscript>
 <h2>Innhald</h2>
 <ul>
 	<li><a href="#grunn">Kjerneprinsipp</a></li>
@@ -70,24 +82,33 @@
 </ul>
 <h2 id="konstantar">Konstantar</h2>
 <table>
+<tbody>
 	<tr>
 		<th>Konstant</th>
 		<th>Verdi</th>
 		<th>Namn</th>
-		<th>Bruk</th>
 	</tr>
 	<tr>
 		<td>$\mu$</td>
 		<td>$6.67408×10^{−11} m^3 s^{-2} kg^{-1}$</td>
 		<td>Gravitasjonskonstanten</td>
-		<td>Utrekning av tyngdekraft</td>
 	</tr>
 	<tr>
-		<td></td>
-		<td>$11.94...$</td>
-		<td>Hohmann-biellipse radiusen</td>
-		<td>Optimalisering av baneskifte</td>
+		<td>$c$</td>
+		<td>$299,792,458\ m\ s^{-1}$</td>
+		<td>Lysfarta i vakuum</td>
 	</tr>
+	<tr>
+		<td>$\sigma$</td>
+		<td>$299,792,458\ m\ s^{-1}$</td>
+		<td>Stefan-Boltzman</td>
+	</tr>
+	<tr>
+		<td>$Hoh_{max}$</td>
+		<td>$11.94$</td>
+		<td>Hohmann-biellipse radiusen</td>
+	</tr>
+</tbody>
 </table>
 <h2 id="grunn">Kjerneprinsipp</h2>
 Tyngdelova
@@ -118,9 +139,7 @@ Ikkje på noko punkt i reisa reknar vi med tyngdekrafta til to ting på same tid
 I eit slikt system med kun ein sentralmasse har ein bane alltid form som eit kjeglesnitt. Dei er det fire av:
 </p>
 <h3 id="sirkel">Sirkelbane</h3>
-<svg
-	width="800"
-	height="500">
+<svg viewBox="0 0 800 500" style="max-width:800px;">
 	<circle
 		cx="400"
 		cy="250"
@@ -189,9 +208,58 @@ $$T=\sqrt{\frac{r^3}{\mu}}$$
 </ul>
 <hr>
 <h3 id="ellipse">Ellipsebane</h3>
-<svg width="800" height="500">
-	<ellipse cx="400" cy="250" rx="300" ry="200" stroke-width="1" stroke="black" fill="none"/>
-	<circle cx="290.46" cy="250" r="5" fill="black"/>
+<svg viewBox="0 0 800 500" style="max-width:800px;">
+	<ellipse
+		cx="400"
+		cy="250"
+		rx="300"
+		ry="200"
+		stroke-width="1"
+		stroke="black"
+		fill="none"/>
+	<line
+		x1="290"
+		y1="250"
+		x2="100"
+		y2="250"
+		stroke-width="2"
+		stroke="red"/>
+	<line
+		x1="291"
+		y1="250"
+		x2="700"
+		y2="250"
+		stroke-width="2"
+		stroke="blue"/>
+	<circle
+		cx="290.46"
+		cy="250"
+		r="5"
+		fill="black"/>
+	<text
+		x="180"
+		y="240"
+		text-anchor="start"
+		font-family="Verdana"
+		font-size="15"
+		fill="red"
+	>P</text>
+	<text
+		x="490"
+		y="240"
+		text-anchor="start"
+		font-family="Verdana"
+		font-size="15"
+		fill="blue"
+	>A</text>
+	<text
+		x="295"
+		y="240"
+		text-anchor="start"
+		font-family="Verdana"
+		font-size="15"
+		fill="black"
+	>μ</text>
 </svg>
 <ul>
 	<li>$\mu$ Masse ganga med gravitasjonskonstanten, $GM$</li>
@@ -252,11 +320,143 @@ $$\tau=\mu\left(\frac{1}{r_{botn}}-\frac{1}{r_{topp}}\right)$$
 <hr>
 Tverrsnittsforhold
 $$e^{\frac{\tau\cdot\rho}{S}}$$
+<hr>
+<h2>Segl</h2>
+<p>Lys kan bera moment. Difor er det mogleg å akselerera eit fartyg ved å reflektera lys. Men det er veldig små kreftar det er snakk om, så akselrasjonen er i alle tilfelle liten sjølv om seglet er tynt. Det einaste som gjer denne typen framdrift interessang er at han ikkje krevjar at skipet brukar drivstoff.</p>
+<p>Solsegl kan nytta lys frå Sola eller ein laser frå Jorda.</p>
+<ul>
+	<li>$P$ strålingseffekt per tverrsnittsareal</li>
+	<li>$c$ lysfarta</li>
+	<li>$u$ vinkelavstand frå normalstilt</li>
+	<li>$\lambda$ tjukkleiken til seglet</li>
+	<li>$\rho$ tettheita til seglmaterialet</li>
+	<li>$T$ segltemperatur</li>
+	<li>$T_m$ smeltepunktet til seglmaterialet</li>
+	<li>$\epsilon$ utstrålingfaktoren til seglmaterialet</li>
+	<li>$\sigma$ Stefan-Boltzman konstanten</li>
+	<li>$R$ reflektert andel av lyset</li>
+	<li>$A$ absorbert andel av lyset</li>
+</ul>
+<hr>
+Strålingstrykk for normalt segl
+$$F=\frac{P(2R+A)}{c}$$
+<hr>
+Strålingstrykk
+$$F=\frac{P(2R+A)\cdot \cos^2{u}}{c}$$
+<hr>
+Seglvarme. Bør være mindre enn $T_m$ så seglet ikkje smeltar...
+$$T=\sqrt[4]{\frac{PA}{\epsilon\sigma}}$$
+<hr>
+Høgaste 'varme' akselrasjon
+$$a=\frac{(A+2R)\epsilon\sigma T_m^4\cos{u}}{A\lambda\rho c}$$
+Døme:<br>
+Maksimal akselrasjon: <span class="boks" id="varmAkselrasjon"></span>
+<table>
+<tbody>
+	<tr>
+		<th>Namn</th>
+		<th>Verdi</th>
+	</tr>
+	<tr>
+		<td>Absorbsjon $A$</td>
+		<td>
+			<input type="range" id="absorbsjonSlider" min="0" max="1" step="0.01" value="0.05"
+				oninput="interaktiv('absorbsjon',this.value);sumtak('refleksjon',this.value);akselrasjon()">
+			<input class="visning" type="text" id="absorbsjon" value="0.05"
+				oninput="interaktiv('absorbsjonSlider',this.value);sumtak('refleksjon',this.value);akselrasjon()">
+		</td>
+	</tr>
+	<tr>
+		<td>Refleksjon $R$</td>
+		<td>
+			<input type="range" id="refleksjonSlider" min="0" max="1" step="0.01" value="0.95"
+				oninput="interaktiv('refleksjon',this.value);sumtak('absorbsjon',this.value);akselrasjon()">
+			<input class="visning" type="text" id="refleksjon" value="0.95"
+				oninput="interaktiv('refleksjonSlider',this.value);sumtak('absorbsjon',this.value);akselrasjon()">
+		</td>
+	</tr>
+	<tr>
+		<td>Utstrålingsfaktor $\epsilon$</td>
+		<td>
+			<input type="range" id="utstraalingSlider" min="0" max="1" step="0.01" value="0.9"
+				oninput="interaktiv('utstraaling',this.value);akselrasjon()">
+			<input class="visning" type="text" id="utstraaling" value="0.9"
+				oninput="interaktiv('utstraalingSlider',this.value);akselrasjon()">
+		</td>
+	</tr>
+	<tr>
+		<td>Smeltepunkt $T_m$</td>
+		<td>
+			<input type="range" id="smelteSlider" min="0" max="6000" step="1" value="933"
+				oninput="interaktiv('smelte',this.value);akselrasjon()">
+			<input class="visning" type="text" id="smelte" value="933"
+				oninput="interaktiv('smelteSlider',this.value);akselrasjon()">K
+		</td>
+	</tr>
+	<tr>
+		<td>Seglvinkel $u$</td>
+		<td>
+			<input type="range" id="vinkelSlider" min="0" max="90" step="1" value="0"
+				oninput="interaktiv('vinkel',this.value);akselrasjon()">
+			<input class="visning" type="text" id="vinkel" value="0"
+				oninput="interaktiv('vinkelSlider',this.value);akselrasjon()">
+		</td>
+	</tr>
+	<tr>
+		<td>Segltettheit $\rho$</td>
+		<td>
+			<input type="range" id="tettSlider" min="0" max="10000" step="1" value="2699"
+				oninput="interaktiv('tett',this.value);akselrasjon()">
+			<input class="visning" type="text" id="tett" value="2699"
+				oninput="interaktiv('tettSlider',this.value);akselrasjon()">$kg/m^3$
+		</td>
+	</tr>
+	<tr>
+		<td>Segltjukkleik $\lambda$</td>
+		<td>
+			<input type="range" id="tjukkSlider" min="0" max="10000" step="1" value="100"
+				oninput="interaktiv('tjukk',this.value);akselrasjon()">
+			<input class="visning" type="text" id="tjukk" value="100"
+				oninput="interaktiv('tjukkSlider',this.value);akselrasjon()">nm
+		</td>
+	</tr>
+</tbody>
+</table>
+<script>
+interaktiv = function(type,verdi){
+	document.getElementById(type).value = verdi;
+};
+sumtak = function(target,verdi){
+	if(document.getElementById(target).value > 1 - verdi){
+		interaktiv(target,1-verdi);
+		interaktiv(target+'Slider',1-verdi);
+	};
+};
+akselrasjon = function(){
+	var ut = document.getElementById("varmAkselrasjon");
+	ut.style.color = "initial";
+	var absorbsjon = Number(document.getElementById("absorbsjon").value);
+	var refleksjon = Number(document.getElementById("refleksjon").value);
+	var utstraaling = Number(document.getElementById("utstraaling").value);
+	var vinkel = Number(document.getElementById("vinkel").value);
+	var smelte = Number(document.getElementById("smelte").value);
+	var tett = Number(document.getElementById("tett").value);
+	var tjukk = Number(document.getElementById("tjukk").value)/1000000000;
+	if(absorbsjon === 0){
+		ut.innerHTML = "∞ m/s²";
+		return;
+	};
+	ut.innerHTML = Math.pow(smelte,4)*Math.cos(Math.PI*vinkel/180)*5.670367e-10*utstraaling*(absorbsjon + 2*refleksjon)/(tjukk*absorbsjon*299792458*tett) +" m/s²";
+};
+akselrasjon();
+</script>
+<hr>
 <footer>
 	<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
 		<img alt="Creative Commons License" src="CCLicence.png">
 	</a><br>
 Sigvart Brendberg 2017
 </footer>
+</div><!--end main-->
 </body>
 </html>
